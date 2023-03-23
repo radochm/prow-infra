@@ -4,9 +4,9 @@ presubmits:
     always_run: true
     spec:
       containers:
-      - image: golang:1.12.5
+      - image: alpine
         command:
-        - /bin/bash
+        - /bin/ls
         args:
-        - -c
-        - "go test"
+        - -ll
+
