@@ -32,7 +32,10 @@ data:
       maps:
         config/prow/config.yaml:
           name: config
+          namespace: prow
         config/prow/plugins.yaml:
           name: plugins
+          namespace: prow
         config/prow/labels.yaml:
           name: label-config
+          namespace: prow
