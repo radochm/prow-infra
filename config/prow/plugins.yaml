@@ -1,0 +1,38 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: prow
+  name: plugins
+data:
+  plugins.yaml: |
+    plugins:
+      radochm/prow-infra:
+        plugins:
+        - approve
+        - assign
+        - blunderbuss
+        - cat
+        - config-updater
+        - dog
+        - help
+        - heart
+        - hold
+        - invalidcommitmsg
+        - label
+        - lgtm
+        - override
+        - sigmention
+        - trigger
+        - verify-owners
+        - wip
+        - yuks
+
+    config_updater:
+      maps:
+        config/prow/config.yaml:
+          name: config
+        config/prow/plugins.yaml:
+          name: plugins
+        config/prow/labels.yaml:
+          name: label-config
