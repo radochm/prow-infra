@@ -69,7 +69,7 @@ data:
     
     decorate_all_jobs: true
     periodics:
-    - interval: 5m
+    - interval: 6m
       agent: kubernetes
       name: echo-test
       spec:
