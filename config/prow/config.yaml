@@ -71,7 +71,7 @@ data:
     periodics:
     - interval: 15m
       agent: kubernetes
-      name: echo-test1
+      name: echo-test
       spec:
         containers:
         - image: alpine
