@@ -80,11 +80,15 @@ decorate_all_jobs: true
 #      command: ["/bin/date"]
 presubmits:
   radochm/build-test:
-  - name: test-presubmit
+  - name: test-presubmit1
     decorate: true
     always_run: true
     spec:
       containers:
-        - image: alpine
+        - image: gcr.io/k8s-prow/checkconfig:v20230322-fad14aa00d
           command:
-            - /bin/printenv
+            - /ko-app/checkconfig
+          args:
+          - --plugin-config=plugins.yaml
+          - --config-path=config.yaml
+          - --prow-yaml-repo-name=$(REPO_OWNER)/$(REPO_NAME)
