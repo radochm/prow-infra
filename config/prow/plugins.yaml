@@ -20,6 +20,23 @@ plugins:
     - wip
     - yuks
 
+  radochm/*:
+    plugins:
+    - approve
+    - assign
+    - blunderbuss
+    - help
+    - hold
+    - invalidcommitmsg
+    - label
+    - lgtm
+    - sigmention
+    - trigger
+    - verify-owners
+    - wip
+    - yuks
+
+
 config_updater:
   maps:
     config/prow/config.yaml:
