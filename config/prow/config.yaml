@@ -70,33 +70,21 @@ branch-protection:
         - "^dependabot/"
 
 decorate_all_jobs: true
-periodics:
-- interval: 6m
-  agent: kubernetes
-  name: echo-test
-  spec:
-    containers:
-    - image: alpine
-      command: ["/bin/date"]
+#periodics:
+#- interval: 6m
+#  agent: kubernetes
+#  name: echo-test
+#  spec:
+#    containers:
+#    - image: alpine
+#      command: ["/bin/date"]
 presubmits:
-  radochm:
-  - name: validate-inrepoconfig
-    always_run: true
+  radochm/test-build:
+  - name: test-presubmit
     decorate: true
+    always_run: true
     spec:
       containers:
-      - image: gcr.io/k8s-prow/checkconfig:v20230322-fad14aa00d
-        command:
-          - /ko-app/checkconfig
-        args:
-        - --plugin-config=plugins.yaml
-        - --config-path=config.yaml
-        - --prow-yaml-repo-name=$(REPO_OWNER)/$(REPO_NAME)
-  - name: pull-test
-    always_run: true
-    decorate: true
-    spec:
-      containers:
-      - image: alpine
-        command:
-          - /bin/ls
+        - image: alpine
+          command:
+            - /bin/printenv
