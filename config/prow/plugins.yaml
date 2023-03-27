@@ -37,5 +37,5 @@ data:
           name: plugins
           namespace: prow
         config/prow/labels.yaml:
-          name: label-config
+          name: labelconfig
           namespace: prow
