@@ -20,7 +20,7 @@ plugins:
     - wip
     - yuks
 
-  radochm/*:
+  radochm/build-test:
     plugins:
     - approve
     - assign
