@@ -89,13 +89,9 @@ periodics:
       command: ["/bin/date"]
 presubmits:
   radochm:
-  - name: validate-prow-inrepoconfig
+  - name: validate-inrepoconfig
     always_run: true
     decorate: true
-    extra_refs:
-    - org: radochm
-      repo: build-test
-      base_ref: main
     spec:
       containers:
       - image: gcr.io/k8s-prow/checkconfig:v20230322-fad14aa00d
