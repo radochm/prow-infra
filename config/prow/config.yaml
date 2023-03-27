@@ -58,15 +58,6 @@ tide:
     - do-not-merge/invalid-owners-file
     orgs:
     - radochm
-labelconfig:
-  presets:
-    prow:
-      - name: lgtm
-        color: 00ff00
-      - name: do-not-merge
-        color: ff0000
-      - name: needs-rebse
-        color: ff6600
 
 branch-protection:
   orgs:
