@@ -35,6 +35,7 @@ plugins:
     - verify-owners
     - wip
     - yuks
+    - cla
 
 
 config_updater:
