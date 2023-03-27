@@ -68,6 +68,16 @@ labelconfig:
       - name: needs-rebse
         color: ff6600
 
+branch-protection:
+  orgs:
+    radochm:
+      protect: true
+      required_status_checks:
+        contexts:
+        - EasyCLA
+      exclude:
+        - "^dependabot/"
+
 decorate_all_jobs: true
 periodics:
 - interval: 6m
