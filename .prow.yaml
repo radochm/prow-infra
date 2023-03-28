@@ -12,7 +12,7 @@ presubmits:
   - name: pre-test-infra-validate
     annotations:
     labels:
-    #run_if_changed: '^prow/((plugins|config).yaml|jobs/)'
+    run_if_changed: '^config/prow/((plugins|config).yaml|jobs/)'
     skip_report: false
     decorate: true
     cluster: default
