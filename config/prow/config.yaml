@@ -61,6 +61,7 @@ tide:
  
 decorate_all_jobs: true
 presubmits:
+  radochm:
   - name: presubmit
     decorate: true
     always_run: true
@@ -71,18 +72,18 @@ presubmits:
         - /bin/ls
         args:
         - -ll
-#  - name: pre-test-infra-validate-job
-#    annotations:
-#    labels:
-#    run_if_changed: '^config/prow/((plugins|config).yaml|jobs/)'
-#    skip_report: false
-#    decorate: true
-#    cluster: default
-#    spec:
-#      containers:
-#        - image: "gcr.io/k8s-prow/checkconfig:v20230322-fad14aa00d"
-#          command:
-#            - "checkconfig"
-#          args:
-#            - "--plugin-config=config/prow/plugins.yaml"
-#            - "--config-path=config/prow/config.yaml"
+  - name: pre-test-infra-validate-job
+    annotations:
+    labels:
+    run_if_changed: '.prow.yaml|.prow/)'
+    skip_report: false
+    decorate: true
+    cluster: default
+    spec:
+      containers:
+        - image: "gcr.io/k8s-prow/checkconfig:v20230322-fad14aa00d"
+          command:
+            - "checkconfig"
+          args:
+            - "--plugin-config=config/prow/plugins.yaml"
+            - "--config-path=config/prow/config.yaml"
