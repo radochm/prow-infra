@@ -81,7 +81,7 @@ presubmits:
         - /bin/ls
         args:
         - -ll
-  - name: pre-test-infra-validate
+  - name: pre-test-infra-validate-job
     annotations:
     labels:
     run_if_changed: '^config/prow/((plugins|config).yaml|jobs/)'
