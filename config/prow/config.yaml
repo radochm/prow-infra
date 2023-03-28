@@ -78,3 +78,20 @@ decorate_all_jobs: true
 #    containers:
 #    - image: alpine
 #      command: ["/bin/date"]
+presubmits:
+  - name: pre-test-infra-validate
+    annotations:
+    labels:
+    run_if_changed: '.prow.yaml|.prow/'
+    skip_report: false
+    decorate: true
+    cluster: default
+    max_concurrency: 10
+    spec:
+      containers:
+        - image: "gcr.io/k8s-prow/checkconfig:v20230322-fad14aa00d"
+          command:
+            - "checkconfig"
+          args:
+            - "--plugin-config=config/prow/plugins.yaml"
+            - "--config-path=config/prow/config.yaml"
