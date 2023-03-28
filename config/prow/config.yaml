@@ -60,6 +60,19 @@ tide:
     - radochm
  
 decorate_all_jobs: true
+
+branch-protection:
+  orgs:
+    radochm:
+      repos:
+        build-test:
+          protect: true
+          restrictions:
+            teams: ["oncall-team"]
+          required_status_checks:
+            contexts:
+            - EasyCLA
+
 presubmits:
   radochm/build-test:
   - name: presubmit-from-config
