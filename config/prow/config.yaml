@@ -62,7 +62,7 @@ tide:
 decorate_all_jobs: true
 presubmits:
   radochm:
-  - name: presubmit
+  - name: presubmit-from-config
     decorate: true
     always_run: true
     spec:
