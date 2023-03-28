@@ -58,23 +58,32 @@ tide:
     - do-not-merge/invalid-owners-file
     orgs:
     - radochm
-
-branch-protection:
-  orgs:
-    radochm:
-      protect: true
-      required_status_checks:
-        contexts:
-        - EasyCLA
-      exclude:
-        - "^dependabot/"
-
+ 
 decorate_all_jobs: true
-#periodics:
-#- interval: 6m
-#  agent: kubernetes
-#  name: echo-test
-#  spec:
-#    containers:
-#    - image: alpine
-#      command: ["/bin/date"]
+presubmits:
+  radochm:
+  - name: presubmit
+    decorate: true
+    always_run: true
+    spec:
+      containers:
+      - image: alpine
+        command:
+        - /bin/ls
+        args:
+        - -ll
+  - name: pre-test-infra-validate-job
+    annotations:
+    labels:
+    run_if_changed: '.prow.yaml|.prow/'
+    skip_report: false
+    decorate: true
+    cluster: default
+    spec:
+      containers:
+        - image: "gcr.io/k8s-prow/checkconfig:v20230322-fad14aa00d"
+          command:
+            - "checkconfig"
+          args:
+            - "--plugin-config=config/prow/plugins.yaml"
+            - "--config-path=config/prow/config.yaml"
