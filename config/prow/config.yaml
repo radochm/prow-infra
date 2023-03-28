@@ -75,7 +75,7 @@ presubmits:
   - name: pre-test-infra-validate-job
     annotations:
     labels:
-    run_if_changed: '.prow.yaml|.prow/)'
+    run_if_changed: '.prow.yaml|.prow/'
     skip_report: false
     decorate: true
     cluster: default
