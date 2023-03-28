@@ -106,3 +106,38 @@ presubmits:
             - "--plugin-config=../prow-infra/config/prow/plugins.yaml"
             - "--config-path=../prow-infra/config/prow/config.yaml"
             - "--prow-yaml-repo-name=$(REPO_OWNER)/$(REPO_NAME)"
+periodics:
+- cron: "54 * * * *"  # Every hour at 54 minutes past the hour
+  name: infra-branchprotector
+  cluster: default
+  labels:
+    app: branchprotector
+  decorate: true
+  decoration_config:
+    timeout: 5h
+  extra_refs:
+  - org: radochm
+    repo: build-test
+    base_ref: main
+  spec:
+    containers:
+    - name: branchprotector
+      image: gcr.io/k8s-prow/branchprotector:v20230322-fad14aa00d
+      command:
+      - branchprotector
+      args:
+      - --config-path=config/prow/config.yaml
+      - --github-token-path=/etc/github/oauth
+      - --confirm
+      - --github-endpoint=http://ghproxy.default.svc.cluster.local
+      - --github-endpoint=https://api.github.com
+      volumeMounts:
+      - name: oauth
+        mountPath: /etc/github
+        readOnly: true
+    volumes:
+    - name: oauth
+      secret:
+        secretName: oauth-token
+  annotations:
+    description: Runs Prow's branchprotector to apply configured GitHub status context requirements and merge policies.
