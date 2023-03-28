@@ -1,5 +1,5 @@
 presubmits:
-  - name: presubmit
+  - name: presubmit-from-local
     decorate: true
     always_run: true
     spec:
@@ -9,7 +9,7 @@ presubmits:
         - /bin/ls
         args:
         - -ll
-  - name: pre-test-infra-validate
+  - name: pre-test-infra-validate-local
     annotations:
     labels:
     run_if_changed: '^config/prow/((plugins|config).yaml|jobs/)'
