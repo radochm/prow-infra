@@ -79,6 +79,11 @@ presubmits:
     skip_report: false
     decorate: true
     cluster: default
+    extra_refs:
+      - org: radochm
+        repo: prow-infra
+        path_alias: github.com/radochm/prow-infra
+        base_ref: main
     spec:
       containers:
         - image: "gcr.io/k8s-prow/checkconfig:v20230322-fad14aa00d"
