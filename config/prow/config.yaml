@@ -85,5 +85,6 @@ presubmits:
           command:
             - "checkconfig"
           args:
-            - "--plugin-config=config/prow/plugins.yaml"
-            - "--config-path=config/prow/config.yaml"
+            - "--plugin-config=../prow-infra/config/prow/plugins.yaml"
+            - "--config-path=../prow-infra/config/prow/config.yaml"
+            - "--prow-yaml-repo-name=$(REPO_OWNER)/$(REPO_NAME)"
