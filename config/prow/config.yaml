@@ -107,7 +107,7 @@ presubmits:
             - "--config-path=../prow-infra/config/prow/config.yaml"
             - "--prow-yaml-repo-name=$(REPO_OWNER)/$(REPO_NAME)"
 periodics:
-- cron: "45 * * * *"  # Every hour at 54 minutes past the hour
+- cron: "55 * * * *"  # Every hour at 54 minutes past the hour
   name: infra-branchprotector
   cluster: default
   labels:
@@ -117,7 +117,7 @@ periodics:
     timeout: 5h
   extra_refs:
   - org: radochm
-    repo: build-test
+    repo: prow-infra
     base_ref: main
   spec:
     containers:
@@ -126,7 +126,7 @@ periodics:
       command:
       - branchprotector
       args:
-      - --config-path=config/prow/config.yaml
+      - --config-path=../prow-infra/config/prow/config.yaml
       - --github-token-path=/etc/github/github-token
       - --confirm
       - --github-endpoint=http://ghproxy.default.svc.cluster.local
