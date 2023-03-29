@@ -107,7 +107,7 @@ presubmits:
             - "--config-path=../prow-infra/config/prow/config.yaml"
             - "--prow-yaml-repo-name=$(REPO_OWNER)/$(REPO_NAME)"
 periodics:
-- cron: "18 * * * *"  # Every hour at 54 minutes past the hour
+- cron: "30 * * * *"  # Every hour at 54 minutes past the hour
   name: infra-branchprotector
   cluster: default
   labels:
@@ -127,7 +127,7 @@ periodics:
       - branchprotector
       args:
       - --config-path=../prow-infra/config/prow/config.yaml
-      - --github-token-path=/etc/github/github-token
+      - --github-token-path=/etc/github/cert
       - --confirm
       - --github-endpoint=http://ghproxy.default.svc.cluster.local
       - --github-endpoint=https://api.github.com
