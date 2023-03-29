@@ -34,7 +34,20 @@ plugins:
     - verify-owners
     - wip
     - cla
-
+  radochm/tesing_ground:
+    plugins:
+    - approve
+    - assign
+    - blunderbuss
+    - help
+    - hold
+    - invalidcommitmsg
+    - label
+    - lgtm
+    - sigmention
+    - trigger
+    - verify-owners
+    - wip
 
 config_updater:
   maps:
