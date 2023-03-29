@@ -3,7 +3,11 @@ pod_namespace: test-pods
 
 in_repo_config:
   enabled:
-    "*": true
+    radochm/prow-infra: true
+    radochm/build-test: true
+    radochm/tesing_ground: true
+  allowed_clusters:
+    "*": ["default"]
 
 deck:
  spyglass:
