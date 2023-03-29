@@ -46,6 +46,9 @@ config_updater:
     config/prow/plugins.yaml:
       name: plugins
       namespace: prow
+    config/prow/jobs/**/*.yaml:
+      name: job-config
+      namespace: prow
     config/prow/labels.yaml:
       name: label-config
       namespace: prow
