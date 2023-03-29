@@ -68,10 +68,9 @@ branch-protection:
         build-test:
           protect: true
           restrictions:
-            teams: ["oncall-team"]
+            teams:
           required_status_checks:
             contexts:
-            - EasyCLA
 
 presubmits:
   radochm/build-test:
