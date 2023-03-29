@@ -1,8 +1,9 @@
 periodics:
-- interval: 3m
-  agent: kubernetes
-  name: echo-test-job-folder
-  spec:
-    containers:
-    - image: alpine
-      command: ["/bin/ls"]
+  radochm/prow-infra:
+    - name: ls-job
+      interval: 3m
+      agent: kubernetes
+      spec:
+        containers:
+          - image: alpine
+            command: ["/bin/ls"]
