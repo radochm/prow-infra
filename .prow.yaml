@@ -18,7 +18,8 @@ presubmits:
     cluster: default
     spec:
       containers:
-        - image: "gcr.io/k8s-prow/checkconfig:v20230322-fad14aa00d"
+        #- image: "gcr.io/k8s-prow/checkconfig:v20230322-fad14aa00d"
+        - image: "gcr.io/k8s-prow/checkconfig:v20221208-8898931a7f"
           command:
             - "checkconfig"
           args:
