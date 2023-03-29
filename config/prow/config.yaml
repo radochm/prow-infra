@@ -107,7 +107,7 @@ presubmits:
             - "--config-path=../prow-infra/config/prow/config.yaml"
             - "--prow-yaml-repo-name=$(REPO_OWNER)/$(REPO_NAME)"
 periodics:
-- cron: "30 * * * *"  # Every hour at 54 minutes past the hour
+- cron: "35 * * * *"  # Every hour at 54 minutes past the hour
   name: infra-branchprotector
   cluster: default
   labels:
@@ -132,12 +132,12 @@ periodics:
       - --github-endpoint=http://ghproxy.default.svc.cluster.local
       - --github-endpoint=https://api.github.com
       volumeMounts:
-      - name: oauth
+      - name: github-token
         mountPath: /etc/github
         readOnly: true
     volumes:
-    - name: oauth
+    - name: github-token
       secret:
-        secretName: oauth-token
+        secretName: github-token
   annotations:
     description: Runs Prow's branchprotector to apply configured GitHub status context requirements and merge policies.
