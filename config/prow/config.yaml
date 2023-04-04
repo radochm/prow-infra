@@ -110,7 +110,7 @@ presubmits:
             - "--config-path=../prow-infra/config/prow/config.yaml"
             - "--prow-yaml-repo-name=$(REPO_OWNER)/$(REPO_NAME)"
 periodics:
-- cron: "15 * * * *"  # Every hour at 54 minutes past the hour
+- cron: "* * 1 * *"
   name: infra-branchprotector
   cluster: default
   labels:
