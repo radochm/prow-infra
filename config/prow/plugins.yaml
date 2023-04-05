@@ -18,6 +18,13 @@ plugins:
     - cat
     - config-updater
     - dog
+    
+external_plugins:
+  radochm:
+  - name: needs-rebase
+    events:
+      - issue_comment
+      - pull_request
 
 config_updater:
   maps:
