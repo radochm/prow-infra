@@ -77,7 +77,7 @@ branch-protection:
             contexts:
 
 presubmits:
-  radochm:
+  radochm/build-test:
   - name: pre-test-infra-validate-job
     annotations:
     labels:
