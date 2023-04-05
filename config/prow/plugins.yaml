@@ -1,53 +1,30 @@
 plugins:
-  radochm/prow-infra:
+  radochm:
     plugins:
     - approve
     - assign
     - blunderbuss
+    - help
+    - hold
+    - invalidcommitmsg
+    - label
+    - lgtm
+    - sigmention
+    - trigger
+    - verify-owners
+    - wip
+  radochm/prow-infra:
+    plugins:
     - cat
     - config-updater
     - dog
-    - help
-    - heart
-    - hold
-    - invalidcommitmsg
-    - label
-    - lgtm
-    - override
-    - sigmention
-    - trigger
-    - verify-owners
-    - wip
-
-  radochm/build-test:
-    plugins:
-    - approve
-    - assign
-    - blunderbuss
-    - help
-    - hold
-    - invalidcommitmsg
-    - label
-    - lgtm
-    - sigmention
-    - trigger
-    - verify-owners
-    - wip
-    - cla
-  radochm/tesing_ground:
-    plugins:
-    - approve
-    - assign
-    - blunderbuss
-    - help
-    - hold
-    - invalidcommitmsg
-    - label
-    - lgtm
-    - sigmention
-    - trigger
-    - verify-owners
-    - wip
+    
+external_plugins:
+  radochm:
+  - name: needs-rebase
+    events:
+      - issue_comment
+      - pull_request
 
 config_updater:
   maps:
