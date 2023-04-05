@@ -77,17 +77,7 @@ branch-protection:
             contexts:
 
 presubmits:
-  radochm/build-test:
-  - name: presubmit-from-config
-    decorate: true
-    always_run: true
-    spec:
-      containers:
-      - image: alpine
-        command:
-        - /bin/ls
-        args:
-        - -ll
+  radochm:
   - name: pre-test-infra-validate-job
     annotations:
     labels:
