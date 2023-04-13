@@ -51,5 +51,10 @@ triggers:
       - build-test
     trusted_apps:
       - dependabot
-    only_org_members: false
+    only_org_members: true
     ignore_ok_to_test: true
+lgtm:
+  - repos:
+      - build-test
+    review_acts_as_lgtm: true
+
