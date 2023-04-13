@@ -45,3 +45,11 @@ config_updater:
     config/prow/labels.yaml:
       name: label-config
       namespace: prow
+
+triggers:
+  - repos:
+      - build-test
+    trusted_apps:
+      - dependabot
+    only_org_members: true
+    ignore_ok_to_test: true
