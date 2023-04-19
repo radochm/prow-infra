@@ -11,7 +11,7 @@ variable "zone" {
 }
 
 variable "instance" {
-  default = "e2-micro"
+  default = "e2-standard-4"
 }
 
 variable "ssh_pem_key" {
