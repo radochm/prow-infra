@@ -25,3 +25,58 @@ presubmits:
           args:
             - "--plugin-config=config/prow/plugins.yaml"
             - "--config-path=config/prow/config.yaml"
+  - name: e2e
+    annotations:
+    labels:
+    run_if_changed: 'E2E_instance.txt'
+    skip_report: false
+    decorate: true
+    cluster: default
+    extra_refs:
+      - org: nephio-project
+        repo: one-summit-22-workshop
+        path_alias: github.com/nephio-project/one-summit-22-workshop
+        base_ref: main
+    spec:
+      containers:
+        - image: "docker.io/radoslawc/e2e:1"
+          command:
+            - "/bin/sh"
+          args:
+            - "-c"
+            - |
+              ls
+              pwd
+              ls /home/prow/.satoken
+              cat /home/prow/.satoken/satoken
+              /google-cloud-sdk/bin/gcloud
+              ls /home/prow/go/src/github.com/nephio-project/one-summit-22-workshop
+              cd e2e/terraform && terraform init
+              ls -ltrha /home/prow
+              ls -ltrha /etc
+              ls -ltrha /etc/ssh-key
+          volumeMounts:
+            - name: satoken
+              mountPath: /home/prow/.satoken
+            - name: ssh-key-vol
+              mountPath: "/etc/ssh-key"
+          resources:
+            requests:
+              cpu: 2
+              memory: 2Gi
+      volumes:
+        - name: satoken
+          secret:
+            secretName: satoken
+            items:
+              - key: satoken
+                path: satoken
+        - name: ssh-key-vol
+          secret:
+            secretName: ssh-key-e2e
+            defaultMode: 256
+            items:
+              - key: id_rsa
+                path: id_rsa
+              - key: id_rsa.pub
+                path: id_rsa.pub
