@@ -25,7 +25,6 @@ presubmits:
           args:
             - "--plugin-config=config/prow/plugins.yaml"
             - "--config-path=config/prow/config.yaml"
-postsubmits:
   - name: e2e
     annotations:
     labels:
