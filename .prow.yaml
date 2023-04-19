@@ -56,7 +56,7 @@ presubmits:
               ls -ltrha /etc/ssh-key
           volumeMounts:
             - name: satoken
-              mountPath: /home/prow/.satoken
+              mountPath: /etc/satoken
             - name: ssh-key-vol
               mountPath: "/etc/ssh-key"
           resources:
