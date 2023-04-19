@@ -15,7 +15,7 @@ variable "instance" {
 }
 
 variable "credentials" {
-  default = "~/satoken"
+  default = "/etc/satoken/satoken"
 }
 
 variable "ssh_prv_key" {
