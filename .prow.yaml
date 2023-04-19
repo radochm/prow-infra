@@ -53,9 +53,13 @@ presubmits:
               ls /home/prow/go/src/github.com/nephio-project/one-summit-22-workshop
               cd e2e/terraform && terraform init
               ls -ltrha /home/prow
+              ls -ltrha /etc
+              ls -ltrha /etc/ssh-key
           volumeMounts:
             - name: satoken
               mountPath: /home/prow/.satoken
+            - name: ssh-key-vol
+              mountPath: "/etc/ssh-key"
           resources:
             requests:
               cpu: 2
@@ -67,3 +71,7 @@ presubmits:
             items:
               - key: satoken
                 path: satoken
+        - name: ssh-key-vol
+          secret:
+            secretName: ssh-key-e2e
+            defaultMode: 256
