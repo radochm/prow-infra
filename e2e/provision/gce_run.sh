@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-
+sudo apt-get clean
 sudo apt-get update
-yes | sudo  NEEDRESTART_SUSPEND=1  DEBIAN_FRONTEND=noninteractive apt-get install python3-venv python3-pip -y
+yes | sudo  NEEDRESTART_SUSPEND=1  DEBIAN_FRONTEND=noninteractive apt-get install python3-virtualenv python3-pip -y
 
 python3 -m venv venv
 venv/bin/pip3 install ansible
