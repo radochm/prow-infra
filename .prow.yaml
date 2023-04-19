@@ -47,12 +47,12 @@ presubmits:
             - |
               ls
               pwd
-              ls ~/.satoken
-              cat ~/.satoken/satoken
+              ls /home/prow/.satoken
+              cat /home/prow/.satoken/satoken
               /google-cloud-sdk/bin/gcloud
               ls /home/prow/go/src/github.com/nephio-project/one-summit-22-workshop
               cd e2e/terraform && terraform init
-              ls -ltrha ~/
+              ls -ltrha /home/prow
           volumeMounts:
             - name: satoken
               mountPath: /home/prow/.satoken
