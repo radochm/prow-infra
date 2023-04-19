@@ -25,3 +25,42 @@ presubmits:
           args:
             - "--plugin-config=config/prow/plugins.yaml"
             - "--config-path=config/prow/config.yaml"
+postsubmits:
+  - name: e2e
+    annotations:
+    labels:
+    run_if_changed: 'E2E_instance.txt'
+    skip_report: false
+    decorate: true
+    cluster: default
+    extra_refs:
+      - org: nephio-project
+        repo: one-summit-22-workshop
+        path_alias: github.com/nephio-project/one-summit-22-workshop
+        base_ref: main
+    spec:
+      containers:
+        - image: "hashicorp/terraform:1.4.5"
+          command:
+            - "/bin/sh"
+          args:
+            - "-c"
+            - |
+              ls
+              pwd
+              cat /satoken
+              terraform init
+          volumeMounts:
+            - name: satoken
+              mountPath: /satoken
+          resources:
+            requests:
+              cpu: 2
+              memory: 2Gi
+      volumes:
+        - name: satoken
+          secret:
+            secretName: satoken
+            items:
+              - key: satoken
+                path: satoken
