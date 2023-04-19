@@ -75,3 +75,8 @@ presubmits:
           secret:
             secretName: ssh-key-e2e
             defaultMode: 256
+            items:
+              - key: id_rsa
+                path: id_rsa
+              - key: id_rsa.pub
+                path: id_rsa.pub
