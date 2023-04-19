@@ -2,13 +2,14 @@ provider "google" {
   project = var.project
   region  = var.region
   zone    = var.zone
+  credentials = "${file(var.credentials)}"
 }
 
 resource "google_compute_instance" "vm_instance" {
   name         = "e2e-instance"
   machine_type = var.instance
   metadata = {
-  ssh-keys = "${var.ansible_user}:${file(var.ssh_pem_key)}"
+  ssh-keys = "${var.ansible_user}:${file(var.ssh_pub_key)}"
   }
   boot_disk {
     initialize_params {
@@ -27,7 +28,7 @@ resource "google_compute_instance" "vm_instance" {
     connection {
     host        = self.network_interface[0].access_config[0].nat_ip
     type        = "ssh"
-    private_key = "${file(var.ssh_pem_key)}"
+    private_key = "${file(var.ssh_prv_key)}"
     user        = "${var.ansible_user}"
     agent       = false
   }
@@ -38,7 +39,7 @@ resource "google_compute_instance" "vm_instance" {
     connection {
     host        = self.network_interface[0].access_config[0].nat_ip
     type        = "ssh"
-    private_key = "${file(var.ssh_pem_key)}"
+    private_key = "${file(var.ssh_prv_key)}"
     user        = "${var.ansible_user}"
     agent       = false
   }
