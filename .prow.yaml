@@ -51,7 +51,7 @@ presubmits:
               cat /satoken/satoken
               /google-cloud-sdk/bin/gcloud
               ls /home/prow/go/src/github.com/nephio-project/one-summit-22-workshop
-              cd terraform && terraform init
+              cd e2e/terraform && terraform init
           volumeMounts:
             - name: satoken
               mountPath: /satoken
