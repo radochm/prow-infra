@@ -48,7 +48,8 @@ postsubmits:
             - |
               ls
               pwd
-              cat /satoken
+              ls /satoken
+              find / -name one-summit-22-workshop
               terraform init
           volumeMounts:
             - name: satoken
