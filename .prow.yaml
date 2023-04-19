@@ -39,7 +39,7 @@ presubmits:
         base_ref: main
     spec:
       containers:
-        - image: "hashicorp/terraform:1.4.5"
+        - image: "docker.io/radoslawc/e2e:1"
           command:
             - "/bin/sh"
           args:
