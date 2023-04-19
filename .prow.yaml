@@ -45,15 +45,9 @@ presubmits:
           args:
             - "-c"
             - |
-              ls
-              pwd
-              ls /home/prow/.satoken
-              cat /home/prow/.satoken/satoken
               ls /home/prow/go/src/github.com/nephio-project/one-summit-22-workshop
-              cd e2e/terraform && terraform init && terraform plan
-              ls -ltrha /home/prow
-              ls -ltrha /etc
-              ls -ltrha /etc/ssh-key
+              cd e2e/terraform && terraform init && terraform plan && \
+              terraform apply -auto-approve && terraform destroy -auto-approve
           volumeMounts:
             - name: satoken
               mountPath: /etc/satoken
