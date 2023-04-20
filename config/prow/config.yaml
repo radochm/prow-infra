@@ -122,7 +122,7 @@ postsubmits:
         - "-c"
         - |
           executor --context=${PWD} \
-            --dockerfile=Dockerfile --destination=radoslawc/nmath:${BUILD_ID}
+            --dockerfile=Dockerfile --destination=radoslawc/nmath:${PULL_BASE_REF}
         volumeMounts:
           - name: kaniko-secret
             mountPath: /kaniko/.docker/
