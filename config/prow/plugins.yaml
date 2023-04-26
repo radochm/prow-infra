@@ -50,3 +50,9 @@ approve:
   - repos:
      - radochm/build-test
     require_self_approval: true
+    
+label:
+  additional_labels:
+    - merge-method-merge
+    - merge-method-rebase
+    - merge-method-squash
