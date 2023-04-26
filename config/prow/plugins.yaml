@@ -46,18 +46,6 @@ config_updater:
       name: label-config
       namespace: prow
 
-triggers:
-  - repos:
-      - radochm/build-test
-    trusted_apps:
-      - dependabot
-    only_org_members: true
-    ignore_ok_to_test: true
-lgtm:
-  - repos:
-      - build-test
-    review_acts_as_lgtm: true
-
 approve:
   - repos:
      - radochm/build-test
