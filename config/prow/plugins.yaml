@@ -49,4 +49,4 @@ config_updater:
 approve:
   - repos:
      - radochm/build-test
-    require_self_approval: false
+    require_self_approval: true
