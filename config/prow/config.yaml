@@ -63,10 +63,11 @@ tide:
     - do-not-merge/invalid-owners-file
     orgs:
     - radochm
-  rebase_label: 'merge-rebase'
-  squash_lable: 'merge-squash'
-  
- 
+  blocker_label: merge-blocker
+  squash_label: merge-method-squash
+  rebase_label: merge-method-rebase
+  merge_label: merge-method-merge
+
 decorate_all_jobs: true
 
 branch-protection:
