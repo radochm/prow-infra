@@ -63,6 +63,9 @@ tide:
     - do-not-merge/invalid-owners-file
     orgs:
     - radochm
+  rebase_label: 'merge-rebase'
+  squash_lable: 'merge-squash'
+  
  
 decorate_all_jobs: true
 
