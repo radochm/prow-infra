@@ -48,7 +48,7 @@ config_updater:
 
 triggers:
   - repos:
-      - build-test
+      - radochm/build-test
     trusted_apps:
       - dependabot
     only_org_members: true
@@ -60,5 +60,5 @@ lgtm:
 
 approve:
   - repos:
-     - build-test
+     - radochm/build-test
     require_self_approval: true
