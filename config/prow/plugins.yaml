@@ -43,7 +43,7 @@ config_updater:
       name: job-config
       namespace: prow
     config/prow/labels.yaml:
-      name: label-config
+      name: labels
       namespace: prow
 
 approve:
