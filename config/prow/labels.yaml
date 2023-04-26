@@ -26,7 +26,7 @@ labels:
     prowPlugin: verify-owners
     addedBy: prow
 
-  - color: e11d21
+  - color: e11d23
     description: Indicates that a PR is documentation
     name: documantation
     target: prs
