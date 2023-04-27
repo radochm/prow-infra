@@ -24,3 +24,4 @@ cp provision/nephio.yaml one-summit-22-workshop/nephio-ansible-install/inventory
 cd one-summit-22-workshop/nephio-ansible-install
 
 ../../venv/bin/ansible-playbook playbooks/install-prereq.yaml
+../../venv/bin/ansible-playbook playbooks/deploy-clusters.yaml
