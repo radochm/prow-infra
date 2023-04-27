@@ -38,7 +38,7 @@ resource "google_compute_instance" "vm_instance" {
   }
   provisioner "file" {
     source      = "/etc/nephio.yaml"
-    destination = "/etc/nephio.yaml"
+    destination = "/tmp/nephio.yaml"
     connection {
     host        = self.network_interface[0].access_config[0].nat_ip
     type        = "ssh"
@@ -48,8 +48,6 @@ resource "google_compute_instance" "vm_instance" {
   }
 
   }
-  
-  
   
   provisioner "remote-exec" {
     connection {
