@@ -55,7 +55,7 @@ presubmits:
               mountPath: "/etc/satoken"
             - name: ssh-key-vol
               mountPath: "/etc/ssh-key"
-            - name: nephio.yaml
+            - name: nephio-e2e-yaml
               mountPath: "/etc/nephio.yaml"
           resources:
             requests:
@@ -77,7 +77,7 @@ presubmits:
                 path: id_rsa
               - key: id_rsa.pub
                 path: id_rsa.pub
-        - name: nephio.yaml
+        - name: nephio-e2e-yaml
           secret:
             secretName: nephio-e2e-yaml
             items:
