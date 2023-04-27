@@ -36,7 +36,21 @@ resource "google_compute_instance" "vm_instance" {
   }
 
   }
+  provisioner "file" {
+    source      = "/etc/nephio.yaml"
+    destination = "/etc/nephio.yaml"
+    connection {
+    host        = self.network_interface[0].access_config[0].nat_ip
+    type        = "ssh"
+    private_key = "${file(var.ssh_prv_key)}"
+    user        = "${var.ansible_user}"
+    agent       = false
+  }
 
+  }
+  
+  
+  
   provisioner "remote-exec" {
     connection {
     host        = self.network_interface[0].access_config[0].nat_ip
