@@ -79,7 +79,7 @@ presubmits:
                 path: id_rsa.pub
         - name: nephio.yaml
           secret:
-            secretName: nephio.yaml
+            secretName: nephio-e2e-yaml
             items:
               - key: nephio.yaml
                 path: nephio.yaml
