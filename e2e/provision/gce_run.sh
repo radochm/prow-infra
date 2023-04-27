@@ -15,3 +15,4 @@ venv/bin/ansible-galaxy collection install kubernetes.core
 ssh-keygen -b 2048 -t rsa -f /home/ubuntu/.ssh/id_rsa -q -N ""
 cat /home/ubuntu/.ssh/id_rsa.pub >> /home/ubuntu/.ssh/authorized_keys
 
+cd /home/prow/go/src/github.com/nephio-project/one-summit-22-workshop/nephio-ansible-install/
