@@ -12,11 +12,13 @@ venv/bin/ansible-galaxy collection install community.general
 venv/bin/ansible-galaxy collection install kubernetes.docker
 venv/bin/ansible-galaxy collection install kubernetes.core
 
-ssh-keygen -b 2048 -t rsa -f /home/prow/.ssh/id_rsa -q -N ""
-cat /home/prow/.ssh/id_rsa.pub >> /home/prow/.ssh/authorized_keys
+ssh-keygen -b 2048 -t rsa -f /home/ubuntu/.ssh/id_rsa -q -N ""
+cat /home/ubuntu/.ssh/id_rsa.pub >> /home/ubuntu/.ssh/authorized_keys
 
+git clone https://github.com/nephio-project/one-summit-22-workshop.git
 
-cd /home/prow/go/src/github.com/nephio-project/one-summit-22-workshop/nephio-ansible-install/
-mkdir inventory
-cp /home/prow/go/src/github.com/radochm/prow-infra/e2e/provision/nephio.yaml inventory/
-/home/prow/go/src/github.com/radochm/prow-infra/venv/bin/ansible-playbook playbooks/install-prereq.yaml
+mkdir one-summit-22-workshop/nephio-ansible-install/inventory
+
+cp provision/nephio.yaml one-summit-22-workshop/nephio-ansible-install/inventory/
+
+venv/bin/ansible-playbook one-summit-22-workshop/nephio-ansible-install/playbooks/install-prereq.yaml
