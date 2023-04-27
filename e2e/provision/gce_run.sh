@@ -25,4 +25,11 @@ cd one-summit-22-workshop/nephio-ansible-install
 
 ../../venv/bin/ansible-playbook playbooks/install-prereq.yaml
 ../../venv/bin/ansible-playbook playbooks/create-gitea.yaml
+../../venv/bin/ansible-playbook playbooks/create-gitea-repos.yaml
 ../../venv/bin/ansible-playbook playbooks/deploy-clusters.yaml
+../../venv/bin/ansible-playbook playbooks/configure-nephio.yaml
+
+kubectl get namespaces
+
+curl -v http://localhost:7007
+curl -v http://localhost:3000
