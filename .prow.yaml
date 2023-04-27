@@ -47,7 +47,6 @@ presubmits:
             - |
               echo "-------------ls /etc----------"
               ls /etc
-              ls /etc/nephio
               cd e2e/terraform && terraform init && terraform plan && \
               terraform apply -auto-approve && terraform destroy -auto-approve
           volumeMounts:
