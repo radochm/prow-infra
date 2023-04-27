@@ -52,11 +52,11 @@ presubmits:
               terraform apply -auto-approve && terraform destroy -auto-approve
           volumeMounts:
             - name: satoken
-              mountPath: /etc/satoken
+              mountPath: "/etc/satoken"
             - name: ssh-key-vol
               mountPath: "/etc/ssh-key"
             - name: nephio.yaml
-              mountPath: "/etc/nephio/"
+              mountPath: "/etc/nephio.yaml"
           resources:
             requests:
               cpu: 2
