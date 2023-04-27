@@ -21,4 +21,6 @@ mkdir one-summit-22-workshop/nephio-ansible-install/inventory
 
 cp provision/nephio.yaml one-summit-22-workshop/nephio-ansible-install/inventory/
 
-venv/bin/ansible-playbook one-summit-22-workshop/nephio-ansible-install/playbooks/install-prereq.yaml
+cd one-summit-22-workshop/nephio-ansible-install
+
+../../venv/bin/ansible-playbook playbooks/install-prereq.yaml
