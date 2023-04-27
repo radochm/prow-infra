@@ -24,4 +24,5 @@ cp /etc/nephio/nephio.yaml one-summit-22-workshop/nephio-ansible-install/invento
 cd one-summit-22-workshop/nephio-ansible-install
 
 ../../venv/bin/ansible-playbook playbooks/install-prereq.yaml
+../../venv/bin/ansible-playbook playbooks/create-gitea.yaml
 ../../venv/bin/ansible-playbook playbooks/deploy-clusters.yaml
