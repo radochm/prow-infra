@@ -12,7 +12,8 @@ venv/bin/ansible-galaxy collection install community.general
 venv/bin/ansible-galaxy collection install kubernetes.docker
 venv/bin/ansible-galaxy collection install kubernetes.core
 
-ssh-keygen -b 2048 -t rsa -f /home/ubuntu/.ssh/id_rsa -q -N ""
-cat /home/ubuntu/.ssh/id_rsa.pub >> /home/ubuntu/.ssh/authorized_keys
+ssh-keygen -b 2048 -t rsa -f /home/prow/.ssh/id_rsa -q -N ""
+cat /home/prow/.ssh/id_rsa.pub >> /home/prow/.ssh/authorized_keys
 
 cd /home/prow/go/src/github.com/nephio-project/one-summit-22-workshop/nephio-ansible-install/
+/home/prow/go/src/github.com/radochm/prow-infra/venv/bin/ansible-playbook playbooks/install-prereq.yaml
