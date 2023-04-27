@@ -6,8 +6,12 @@ yes | sudo  NEEDRESTART_SUSPEND=1  DEBIAN_FRONTEND=noninteractive apt-get instal
 python3 -m venv venv
 venv/bin/pip3 install ansible
 venv/bin/pip3 install jmespath
+venv/bin/pip3 install pygithub
+
 venv/bin/ansible-galaxy collection install community.general
+venv/bin/ansible-galaxy collection install kubernetes.docker
 venv/bin/ansible-galaxy collection install kubernetes.core
 
-cd /home/ubuntu/provision
-../venv/bin/ansible-playbook -e ansible_connection=local -e ansible_user=ubuntu -e os_user=ubuntu -e os_group=ubuntu deploy_mk8s.yaml
+ssh-keygen -b 2048 -t rsa -f /home/ubuntu/.ssh/id_rsa -q -N ""
+cat /home/ubuntu/.ssh/id_rsa.pub >> /home/ubuntu/.ssh/authorized_keys
+

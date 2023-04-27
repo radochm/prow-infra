@@ -6,114 +6,34 @@ labels:
     target: prs
     prowPlugin: approve
     addedBy: approvers
-
-  - color: e11d21
-    description: Indicates that a PR should not merge. Label can only be manually applied/removed.
-    name: do-not-merge
-    target: prs
-    addedBy: humans
-
-  - color: e11d21
-    description: Indicates that a PR is a Bug.
-    name: bug
-    target: prs
-    addedBy: humans
-
-  - color: e11d21
-    description: Indicates that a PR should not merge because it has an invalid OWNERS file in it.
-    name: do-not-merge/invalid-owners-file
-    target: prs
-    prowPlugin: verify-owners
-    addedBy: prow
-
-  - color: e11d23
-    description: Indicates that a PR is documentation
-    name: documantation
-    target: prs
-    addedBy: humans
-
-  - color: eeaa00
-    description: Denotes a PR is duplicate
-    name: duplicate
-    target: prs
-    addedBy: humans
-
-  - color: fafa01
-    description: Denotes a PR is enhancement
-    name: enhancement
-    target: prs
-    addedBy: humans
-
-  - color: e22d33
-    description: Indicates that a PR is good first issue
-    name: good first issue
-    target: prs
-    addedBy: humans
-
-  - color: e22aff
-    description: Indicates that a PR needs help
-    name: help wanted
-    target: prs
-    addedBy: humans
-
-  - color: e22aff
-    description: Indicates that a PR is invalid
-    name: invalid
-    target: prs
-    addedBy: humans
-
-  - color: e22aff
+  - color: e22a1f
     description: Indicates that a PR Looks Good to Someone
     name: lgtm
     target: prs
     addedBy: humans
-
   - color: e22aff
     description: Indicates that a PR needs OK from project members to run tests on
     name: needs-ok-to-test
     target: prs
     addedBy: humans
-
-  - color: e22aff
+  - color: e222ff
     description: Indicates that a PR got OK from project members to run tests on
     name: ok-to-test
     target: prs
     addedBy: humans
-
-  - color: e22aff
-    description: Indicates that a PR got question
-    name: question
-    target: prs
-    addedBy: humans
-
-  - color: e22aff
-    description: Indicates that a issue won't be considered for merge
-    name: wontfix
-    target: prs
-    addedBy: humans
-
-  - color: ffaa00
+  - color: ddaa00
     description: Denotes a PR that should be squashed by tide when it merges.
     name: merge-method-squash
     target: prs
     addedBy: humans
-
-  - color: ffaa00
+  - color: ffdd00
     description: Denotes a PR that should be rebased by tide when it merges.
     name: merge-method-rebase
     target: prs
     addedBy: humans
-
-  - color: ffaa00
+  - color: ffaadd
     description: Denotes a PR that should use a standard merge by tide when it merges.
     name: merge-method-merge
     target: prs
     addedBy: humans
 
-  - color: e11d21
-    description: Denotes an issue that blocks the tide merge queue for a branch while it is open.
-    name: merge-blocker
-    target: issues
-    addedBy: humans
-    previously:
-      - name: merge-blocker
