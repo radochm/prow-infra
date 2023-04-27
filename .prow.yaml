@@ -45,6 +45,12 @@ presubmits:
           args:
             - "-c"
             - |
+              pwd
+              echo "-----------------------------pwd-------------------------------"
+              whoami
+              echo "-----------------------------whoami----------------------------"
+              ls /home
+              echo "-----------------------------ls home---------------------------"
               ls /home/prow/go/src/github.com/nephio-project/one-summit-22-workshop
               cd e2e/terraform && terraform init && terraform plan && \
               terraform apply -auto-approve && terraform destroy -auto-approve
