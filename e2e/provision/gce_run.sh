@@ -19,7 +19,7 @@ git clone https://github.com/nephio-project/one-summit-22-workshop.git
 
 mkdir one-summit-22-workshop/nephio-ansible-install/inventory
 
-cp /etc/nephio.yaml one-summit-22-workshop/nephio-ansible-install/inventory/
+cp /tmp/nephio.yaml one-summit-22-workshop/nephio-ansible-install/inventory/
 
 cd one-summit-22-workshop/nephio-ansible-install
 
