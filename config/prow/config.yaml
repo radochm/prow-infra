@@ -67,6 +67,8 @@ tide:
   squash_label: merge-method-squash
   rebase_label: merge-method-rebase
   merge_label: merge-method-merge
+  merge_method:
+    radochm/build-test: squash
 
 decorate_all_jobs: true
 
