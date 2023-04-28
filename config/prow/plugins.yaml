@@ -18,6 +18,7 @@ plugins:
     - lifecycle
     - override
     - owners-label
+    - merge-method-comment
   radochm/prow-infra:
     plugins:
     - cat
