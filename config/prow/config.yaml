@@ -144,7 +144,7 @@ postsubmits:
               - key: .dockerconfigjson
                 path: config.json
 periodics:
-- cron: "* * * * 1"
+- cron: "0 0 1 1 *"
   name: infra-branchprotector
   cluster: default
   labels:
