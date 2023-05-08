@@ -15,21 +15,28 @@ venv/bin/ansible-galaxy collection install kubernetes.core
 ssh-keygen -b 2048 -t rsa -f /home/ubuntu/.ssh/id_rsa -q -N ""
 cat /home/ubuntu/.ssh/id_rsa.pub >> /home/ubuntu/.ssh/authorized_keys
 
-git clone https://github.com/nephio-project/one-summit-22-workshop.git
 
-mkdir one-summit-22-workshop/nephio-ansible-install/inventory
+git clone -b v0.6.8 https://github.com/free5gc/gtp5g.git
 
-cp /home/ubuntu/nephio.yaml one-summit-22-workshop/nephio-ansible-install/inventory/
+cd gtp5g
+make
+make install
 
-cd one-summit-22-workshop/nephio-ansible-install
+#git clone https://github.com/nephio-project/one-summit-22-workshop.git
 
-../../venv/bin/ansible-playbook playbooks/install-prereq.yaml
-../../venv/bin/ansible-playbook playbooks/create-gitea.yaml
-../../venv/bin/ansible-playbook playbooks/create-gitea-repos.yaml
-../../venv/bin/ansible-playbook playbooks/deploy-clusters.yaml
-../../venv/bin/ansible-playbook playbooks/configure-nephio.yaml
+#mkdir one-summit-22-workshop/nephio-ansible-install/inventory
 
-kubectl get namespaces
+#cp /home/ubuntu/nephio.yaml one-summit-22-workshop/nephio-ansible-install/inventory/
 
-curl -v http://localhost:7007
-curl -v http://localhost:3000
+#cd one-summit-22-workshop/nephio-ansible-install
+
+#../../venv/bin/ansible-playbook playbooks/install-prereq.yaml
+#../../venv/bin/ansible-playbook playbooks/create-gitea.yaml
+#../../venv/bin/ansible-playbook playbooks/create-gitea-repos.yaml
+#../../venv/bin/ansible-playbook playbooks/deploy-clusters.yaml
+#../../venv/bin/ansible-playbook playbooks/configure-nephio.yaml
+
+#kubectl get namespaces
+
+#curl -v http://localhost:7007
+#curl -v http://localhost:3000
