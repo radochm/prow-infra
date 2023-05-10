@@ -7,6 +7,7 @@ in_repo_config:
     radochm/prow-infra: true
     radochm/build-test: true
     radochm/tesing_ground: true
+    radochm/kpt-backstage-plugins: true
   allowed_clusters:
     "*": ["default"]
 
@@ -143,6 +144,42 @@ postsubmits:
             items:
               - key: .dockerconfigjson
                 path: config.json
+  radochm/kpt-backstage-plugins:
+  - name: build-push-kpt-image-conf
+    cluster: default
+    always_run: true
+    branches:
+    - "^v.*$"
+    annotations:
+      description: Build and Push Image to DockerHub
+    decorate: true
+    decoration_config:
+      censor_secrets: true
+    max_concurrency: 1
+    spec:
+      containers:
+      - name: kaniko
+        image: gcr.io/kaniko-project/executor:debug
+        command:
+        - "/bin/sh"
+        - "-c"
+        - |
+          executor --context=${PWD} \
+            --dockerfile=Dockerfile --destination=radoslawc/kpt-backstage-plugins:${PULL_BASE_REF}
+        volumeMounts:
+          - name: kaniko-secret
+            mountPath: /kaniko/.docker/
+        resources:
+          requests:
+            cpu: 2
+            memory: 2Gi
+      volumes:
+        - name: kaniko-secret
+          secret:
+            secretName: regcred
+            items:
+              - key: .dockerconfigjson
+                path: config.json   
 periodics:
 - cron: "0 0 1 1 *"
   name: infra-branchprotector
