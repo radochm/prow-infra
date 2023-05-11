@@ -655,7 +655,7 @@ postsubmits:
                 path: config.json
   - name: build-push-image-vlan-fn-commit-conf
     cluster: default
-    run_if_changed: '^krm-functions/vlan-fn'
+    run_if_changed: 'krm-functions/vlan-fn/.*'
     branches:
     - "main"
     annotations:
@@ -726,7 +726,7 @@ postsubmits:
                 path: config.json
   - name: build-push-image-spec-operator-commit-conf
     cluster: default
-    run_if_changed: '^controllers/specialized-operator'
+    run_if_changed: 'controllers/specialized-operator/.*'
     branches:
     - "main"
     annotations:
