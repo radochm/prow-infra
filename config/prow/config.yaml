@@ -708,8 +708,8 @@ postsubmits:
         - "/bin/sh"
         - "-c"
         - |
-          executor --context=${PWD}/controllers/specialized-operator \
-            --dockerfile=Dockerfile --destination=radoslawc/specialized-operator:${PULL_BASE_REF}
+          executor --context=${PWD}/controllers/specializer-operator \
+            --dockerfile=Dockerfile --destination=radoslawc/specializer-operator:${PULL_BASE_REF}
         volumeMounts:
           - name: kaniko-secret
             mountPath: /kaniko/.docker/
@@ -726,7 +726,7 @@ postsubmits:
                 path: config.json
   - name: build-push-image-spec-operator-commit-conf
     cluster: default
-    run_if_changed: 'controllers/specialized-operator/.*'
+    run_if_changed: 'controllers/specializer-operator/.*'
     branches:
     - "main"
     annotations:
@@ -743,8 +743,8 @@ postsubmits:
         - "/bin/sh"
         - "-c"
         - |
-          executor --context=${PWD}/controllers/specialized-operator \
-            --dockerfile=Dockerfile --destination=radoslawc/specialized-operator:${BUILD_ID}
+          executor --context=${PWD}/controllers/specializer-operator \
+            --dockerfile=Dockerfile --destination=radoslawc/specializer-operator:${BUILD_ID}
         volumeMounts:
           - name: kaniko-secret
             mountPath: /kaniko/.docker/
