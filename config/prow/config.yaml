@@ -350,7 +350,7 @@ postsubmits:
         - "-c"
         - |
           executor --context=${PWD}/krm-functions/nad-fn \
-            --dockerfile=Dockerfile --destination=radoslawc/nad-fn:${PULL_BASE_REF}
+            --dockerfile=DockerFile --destination=radoslawc/nad-fn:${PULL_BASE_REF}
         volumeMounts:
           - name: kaniko-secret
             mountPath: /kaniko/.docker/
@@ -385,7 +385,7 @@ postsubmits:
         - "-c"
         - |
           executor --context=${PWD}/krm-functions/nad-fn \
-            --dockerfile=Dockerfile --destination=radoslawc/nad-fn:${BUILD_ID}
+            --dockerfile=DockerFile --destination=radoslawc/nad-fn:${BUILD_ID}
         volumeMounts:
           - name: kaniko-secret
             mountPath: /kaniko/.docker/
