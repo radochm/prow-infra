@@ -456,8 +456,8 @@ postsubmits:
         - "/bin/sh"
         - "-c"
         - |
-          executor --context=${PWD}/krm-functions/nfdeploy-fn/amfdeployfn \
-            --dockerfile=Dockerfile --destination=radoslawc/amf-deploy-fn:${BUILD_ID}
+          executor --context=${PWD}/krm-functions/nfdeploy-fn/ \
+            --dockerfile=amfdeployfn/Dockerfile --destination=radoslawc/amf-deploy-fn:${BUILD_ID}
         volumeMounts:
           - name: kaniko-secret
             mountPath: /kaniko/.docker/
