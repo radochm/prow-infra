@@ -421,8 +421,8 @@ postsubmits:
         - "/bin/sh"
         - "-c"
         - |
-          executor --context=${PWD}/krm-functions/nfdeploy-fn/amfdeployfn \
-            --dockerfile=Dockerfile --destination=radoslawc/amf-deploy-fn:${PULL_BASE_REF}
+          executor --context=${PWD}/krm-functions/nfdeploy-fn/ \
+            --dockerfile=amfdeployfn/Dockerfile --destination=radoslawc/amf-deploy-fn:${PULL_BASE_REF}
         volumeMounts:
           - name: kaniko-secret
             mountPath: /kaniko/.docker/
@@ -493,8 +493,8 @@ postsubmits:
         - "/bin/sh"
         - "-c"
         - |
-          executor --context=${PWD}/krm-functions/nfdeploy-fn/smfdeployfn \
-            --dockerfile=Dockerfile --destination=radoslawc/smf-deploy-fn:${PULL_BASE_REF}
+          executor --context=${PWD}/krm-functions/nfdeploy-fn/ \
+            --dockerfile=smfdeployfn/Dockerfile --destination=radoslawc/smf-deploy-fn:${PULL_BASE_REF}
         volumeMounts:
           - name: kaniko-secret
             mountPath: /kaniko/.docker/
@@ -528,8 +528,8 @@ postsubmits:
         - "/bin/sh"
         - "-c"
         - |
-          executor --context=${PWD}/krm-functions/nfdeploy-fn/smfdeployfn \
-            --dockerfile=Dockerfile --destination=radoslawc/smf-deploy-fn:${BUILD_ID}
+          executor --context=${PWD}/krm-functions/nfdeploy-fn/ \
+            --dockerfile=smfdeployfn/Dockerfile --destination=radoslawc/smf-deploy-fn:${BUILD_ID}
         volumeMounts:
           - name: kaniko-secret
             mountPath: /kaniko/.docker/
@@ -565,8 +565,8 @@ postsubmits:
         - "/bin/sh"
         - "-c"
         - |
-          executor --context=${PWD}/krm-functions/nfdeploy-fn/upfdeployfn \
-            --dockerfile=Dockerfile --destination=radoslawc/upf-deploy-fn:${PULL_BASE_REF}
+          executor --context=${PWD}/krm-functions/nfdeploy-fn/ \
+            --dockerfile=upfdeployfn/Dockerfile --destination=radoslawc/upf-deploy-fn:${PULL_BASE_REF}
         volumeMounts:
           - name: kaniko-secret
             mountPath: /kaniko/.docker/
@@ -600,8 +600,8 @@ postsubmits:
         - "/bin/sh"
         - "-c"
         - |
-          executor --context=${PWD}/krm-functions/nfdeploy-fn/upfdeployfn \
-            --dockerfile=Dockerfile --destination=radoslawc/upf-deploy-fn:${BUILD_ID}
+          executor --context=${PWD}/krm-functions/nfdeploy-fn/ \
+            --dockerfile=upfdeployfn/Dockerfile --destination=radoslawc/upf-deploy-fn:${BUILD_ID}
         volumeMounts:
           - name: kaniko-secret
             mountPath: /kaniko/.docker/
