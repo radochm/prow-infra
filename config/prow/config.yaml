@@ -32,10 +32,6 @@ deck:
        name: podinfo
      required_files:
      - podinfo.json
-   - lens:
-       name: artifacts
-     required_files:
-     - ^artifacts/.*$
 
 plank:
   job_url_prefix_config:
