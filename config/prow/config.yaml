@@ -15,7 +15,7 @@ deck:
  spyglass:
    announcement: 'Artifacts prow.{{if .ArtifactPath}}'
    announcement: "This page -- spyglass -- is the default viewer for prow.{{if .ArtifactPath}} For now, the deprecated gubernator page spyglass replaces <a href='https://gubernator.k8s.io/build/{{.ArtifactPath}}'>remains available</a>.{{end}}"
-   gcs_brpwser_prefix: https://gcsweb.autka.me/gcs
+   gcs_browser_prefix: https://gcsweb.autka.me/gcs
    lenses:
    - lens:
        name: metadata
