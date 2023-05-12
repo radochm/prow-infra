@@ -13,6 +13,7 @@ in_repo_config:
 
 deck:
  spyglass:
+   announcement: 'Artifacts prow.{{if .ArtifactPath}}'
    lenses:
    - lens:
        name: metadata
