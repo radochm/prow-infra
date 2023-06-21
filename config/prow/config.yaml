@@ -8,6 +8,7 @@ in_repo_config:
     radochm/build-test: true
     radochm/tesing_ground: true
     radochm/kpt-backstage-plugins: true
+    radochm/nephio: true
   allowed_clusters:
     "*": ["default"]
 
@@ -252,22 +253,6 @@ postsubmits:
           requests:
             cpu: 2
             memory: 2Gi
-      - name: ko
-        image: imjasonh/setup-ko@v0.6
-        command:
-        - "ko"
-        - "build"
-        - "."
-        - "&&"
-        - "echo"
-        - "${BUILD_ID}"
-        volumeMounts:
-          - name: kaniko-secret
-            mountPath: /kaniko/.docker/
-        resources:
-          requests:
-            cpu: 2
-            memory: 2Gi
       volumes:
         - name: kaniko-secret
           secret:
@@ -275,10 +260,6 @@ postsubmits:
             items:
               - key: .dockerconfigjson
                 path: config.json
-                
-                
-                
-                
                 
   - name: build-push-image-interface-fn-release-conf
     cluster: default
