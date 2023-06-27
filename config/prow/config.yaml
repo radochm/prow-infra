@@ -141,6 +141,13 @@ postsubmits:
           requests:
             cpu: 2
             memory: 2Gi
+      - name: ttt
+        image: alpine:latest
+        command:
+        - "/bin/sh"
+        - "-c"
+        - |
+          ls $ARTIFACTS
       volumes:
         - name: kaniko-secret
           secret:
