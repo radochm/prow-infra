@@ -11,7 +11,8 @@ presubmits:
         - "-c"
         - |
           executor --context=${PWD} \
-            --dockerfile=Dockerfile --destination=radoslawc/prow-infra:${PULL_BASE_REF} > ${ARTIFACTS}/build.log
+            --dockerfile=Dockerfile --destination=radoslawc/prow-infra:${PULL_BASE_REF} >> ${ARTIFACTS}/build.log 2>&1
+          cat ${ARTIFACTS}/build.log
         volumeMounts:
           - name: kaniko-secret
             mountPath: /kaniko/.docker/
