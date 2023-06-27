@@ -6,10 +6,10 @@ presubmits:
       containers:
       - image: alpine
         command:
-        - /bin/ls
-        args:
-        - -ll
-        - ${ARTIFACTS}
+        - "/bin/sh"
+        - "-c"
+        - |
+          ls -lha ${ARTIFACTS}
   - name: pre-test-infra-validate-local
     annotations:
     labels:
