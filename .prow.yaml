@@ -26,9 +26,7 @@ presubmits:
         - "/bin/sh"
         - "-c"
         - |
-          ls -lha ${ARTIFACTS}
-          sleep 300
-          ls -lha ${ARTIFACTS}
+          until [ -f ${ARTIFACTS}/build.log ]; do sleep 5; done; cat ${ARTIFACTS}/build.log
       volumes:
         - name: kaniko-secret
           secret:
