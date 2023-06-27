@@ -9,7 +9,7 @@ presubmits:
         - /bin/ls
         args:
         - -ll
-        - $ARTIFACTS
+        - ${ARTIFACTS}
   - name: pre-test-infra-validate-local
     annotations:
     labels:
