@@ -20,13 +20,14 @@ presubmits:
           requests:
             cpu: 2
             memory: 2Gi
-      - name: alpine
-        image: alpine
+      - name: builder
+        image: radoslawc/builder:3
         command:
         - "/bin/sh"
         - "-c"
         - |
-          until [ -f ${ARTIFACTS}/build.log ]; do sleep 5; done; sleep 60; cat ${ARTIFACTS}/build.log
+          tail -f ${ARTIFACTS}/build.log | sed '/Pushed/ q'
+          /usr/local/bin/release.sh radoslawc/prow-infra:${PULL_BASE_REF}
       volumes:
         - name: kaniko-secret
           secret:
@@ -34,8 +35,6 @@ presubmits:
             items:
               - key: .dockerconfigjson
                 path: config.json
-
-
           
   - name: pre-test-infra-validate-local
     annotations:
