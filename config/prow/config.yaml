@@ -140,7 +140,7 @@ postsubmits:
         resources:
           requests:
             cpu: 2
-            memory: 2Gi
+            memory: 1Gi
       - name: ttt
         image: alpine:latest
         command:
