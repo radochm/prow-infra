@@ -20,7 +20,7 @@ presubmits:
             cpu: 2
             memory: 1Gi
       - name: builder
-        image: radoslawc/builder:4
+        image: radoslawc/builder:5
         command:
         - "/bin/sh"
         - "-c"
