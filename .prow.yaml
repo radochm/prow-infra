@@ -32,7 +32,7 @@ presubmits:
           /usr/local/bin/release.sh radoslawc/prow-infra:${PULL_BASE_REF}
         volumeMounts:
           - name: kaniko-secret1
-            mountPath: /kaniko/.docker/
+            mountPath: /root/.docker/
       volumes:
         - name: kaniko-secret
           secret:
