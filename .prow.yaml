@@ -28,10 +28,19 @@ presubmits:
         - |
           tail -f ${ARTIFACTS}/build.log | sed '/Pushed/ q'
           /usr/local/bin/release.sh radoslawc/prow-infra:${PULL_BASE_REF}
+        volumeMounts:
+          - name: kaniko-secret1
+            mountPath: /kaniko/.docker/
       volumes:
         - name: kaniko-secret
           secret:
             secretName: regcred
+            items:
+              - key: .dockerconfigjson
+                path: config.json
+        - name: kaniko-secret1
+          secret:
+            secretName: regcred1
             items:
               - key: .dockerconfigjson
                 path: config.json
