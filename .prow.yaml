@@ -12,14 +12,13 @@ presubmits:
         - |
           executor --context=${PWD} \
             --dockerfile=Dockerfile --destination=radoslawc/prow-infra:${PULL_BASE_REF} >> ${ARTIFACTS}/build.log 2>&1
-          cat ${ARTIFACTS}/build.log
         volumeMounts:
           - name: kaniko-secret
             mountPath: /kaniko/.docker/
         resources:
           requests:
             cpu: 2
-            memory: 2Gi
+            memory: 1Gi
       - name: builder
         image: radoslawc/builder:3
         command:
@@ -27,6 +26,9 @@ presubmits:
         - "-c"
         - |
           tail -f ${ARTIFACTS}/build.log | sed '/Pushed/ q'
+          whoami
+          pwd
+          ls ~/.docker
           /usr/local/bin/release.sh radoslawc/prow-infra:${PULL_BASE_REF}
         volumeMounts:
           - name: kaniko-secret1
