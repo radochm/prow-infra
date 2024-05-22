@@ -1,5 +1,5 @@
 presubmits:
-  - name: presubmit-from-local
+  - name: presubmit-test-from-local
     decorate: true
     always_run: true
     spec:
