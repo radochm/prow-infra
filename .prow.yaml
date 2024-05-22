@@ -4,48 +4,14 @@ presubmits:
     always_run: true
     spec:
       containers:
-      - name: kaniko
-        image: gcr.io/kaniko-project/executor:debug
+      - name: alpine-date
+        image: alpine:latest
         command:
-        - "/bin/sh"
-        - "-c"
-        - |
-          executor --context=${PWD} \
-            --dockerfile=Dockerfile --destination=radoslawc/prow-infra:${PULL_BASE_REF} >> ${ARTIFACTS}/build.log 2>&1
-        volumeMounts:
-          - name: kaniko-secret
-            mountPath: /kaniko/.docker/
+        - "/bin/date"
         resources:
           requests:
             cpu: 2
             memory: 1Gi
-      - name: builder
-        image: radoslawc/builder:5
-        command:
-        - "/bin/sh"
-        - "-c"
-        - |
-          tail -f ${ARTIFACTS}/build.log | sed '/Pushed/ q'
-          whoami
-          pwd
-          ls ~/.docker
-          /usr/local/bin/release.sh radoslawc/prow-infra:${PULL_BASE_REF}
-        volumeMounts:
-          - name: kaniko-secret1
-            mountPath: /root/.docker/
-      volumes:
-        - name: kaniko-secret
-          secret:
-            secretName: regcred
-            items:
-              - key: .dockerconfigjson
-                path: config.json
-        - name: kaniko-secret1
-          secret:
-            secretName: regcred1
-            items:
-              - key: .dockerconfigjson
-                path: config.json
           
   - name: pre-test-infra-validate-local
     annotations:
