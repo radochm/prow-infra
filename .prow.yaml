@@ -8,10 +8,6 @@ presubmits:
         image: alpine:latest
         command:
         - "/bin/date"
-        resources:
-          requests:
-            cpu: 2
-            memory: 1Gi
           
   - name: pre-test-infra-validate-local
     annotations:
