@@ -140,8 +140,8 @@ postsubmits:
         resources:
           requests:
             cpu: 2
-            memory: 2Gi
-      - name: ttt
+            memory: 1Gi
+      - name: tttt
         image: alpine:latest
         command:
         - "/bin/sh"
